@@ -48,7 +48,7 @@ class Graph:
             self.Node[item][2] = math.sqrt(math.pow((self.Node[item][0] - self.Node[goals][0]),2) + math.pow((self.Node[item][1] - self.Node[goals][1]),2))
 
 
-
+'''
 g1 = Graph()
 g1.addNode('A', 40, 23)
 g1.addNode('B', 23, 44)
@@ -58,3 +58,4 @@ g1.addEdge('A', 'B', 5)
 g1.addEdge('B', 'C', 3)
 g1.setHeuristic('C')
 a1 = Astar()
+'''

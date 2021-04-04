@@ -21,12 +21,15 @@ def loadToGraf(filename, grafDest):
                     tempX2, tempY2 = grafDest.getPos(listofnode[j])
                     tempWeight = math.sqrt(math.pow((tempX1 - tempX2),2) + math.pow((tempY1 - tempY2),2))
                     grafDest.addEdge(listofnode[i-count-1], listofnode[j], tempWeight)
+                    #print(listofnode[i-count-1] + " " + listofnode[j])
         i += 1
+
 '''
 g1 = Graph()
 loadToGraf("test.txt", g1)
 for item in g1.graf.keys():
+    print(item,end=" : ")
     for item2 in g1.graf[item].keys():
-        print(str(g1.graf[item][item2]), end=" ")
+        print(str(item2), end=" ")
     print()
 '''
