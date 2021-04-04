@@ -21,7 +21,7 @@ class Astar:
         self.openlist.put((g1.Node[self.start][2], self.start, self.start))
 
         while(currNode != self.goal and self.openlist.qsize()):
-            temp_buffer = self.openlist.get()
+            temp_buffer = self.getMinHeuristic()
             self.closedlist.append(temp_buffer)
             currNode = temp_buffer[1]
 
