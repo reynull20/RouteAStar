@@ -1,7 +1,8 @@
 from Graph import Graph
 import math
+import LoadFile
 
-def loadToGraf(filename, grafDest):
+def loadToGraf(filename, grafDest, visualGraf):
     filebuff = open("./"+filename)
     listofnode = []
     
@@ -13,6 +14,7 @@ def loadToGraf(filename, grafDest):
             temp = item.strip().split(" ")
             grafDest.addNode(temp[0], float(temp[1]), float(temp[2]))
             listofnode.append(temp[0])
+            visualGraf.add_node(temp[0],pos=(float(temp[1]), float(temp[2])))
         else:
             temp1 = item.strip().split(" ")
             for j in range(len(temp1)):
@@ -21,7 +23,8 @@ def loadToGraf(filename, grafDest):
                     tempX2, tempY2 = grafDest.getPos(listofnode[j])
                     tempWeight = math.sqrt(math.pow((tempX1 - tempX2),2) + math.pow((tempY1 - tempY2),2))
                     grafDest.addEdge(listofnode[i-count-1], listofnode[j], tempWeight)
-                    #print(listofnode[i-count-1] + " " + listofnode[j])
+                    #print(listofnode[i-count-1] + " " + listofnode[j]))
+                    visualGraf.add_edge(listofnode[i-count-1], listofnode[j])
         i += 1
 
 '''

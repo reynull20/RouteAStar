@@ -7,12 +7,20 @@ class Astar:
         self.closedlist = []
         self.start = start
         self.goal = goal
+        self.totalcost = 0
 
     def getMinHeuristic(self):
         return self.openlist.get()
 
     def aStarRes(self, g1):
+        if (self.goal == self.start):
+            return [self.goal]
+        #inisialisasi
+        self.paths = []
+        self.closedlist = []
+        self.openlist = PriorityQueue()
         g1.setHeuristic(self.goal)
+        self.totalcost = 0
 
         #Isi List : (<total weight>, <node tujuan>, <node sekarang>)
         currNode = self.start
@@ -27,6 +35,8 @@ class Astar:
 
             #terbentuk rute dari start node ke goal node
             if self.goal in g1.graf[temp_buffer[1]].keys():
+                if(len(self.closedlist) == 1):
+                    return [self.start, self.goal]
                 self.paths.append(self.goal)
                 self.paths.append(temp_buffer[1])
                 temp_node = temp_buffer[2]
@@ -44,6 +54,4 @@ class Astar:
         return []
 
     def Solve(self, g1):
-        for item in self.closedlist:
-            print(item[0])
-        return self.aStarRes(g1)
+        return self.aStarRes(g1), self.totalcost
