@@ -11,7 +11,7 @@ Algoritma decrease and conquer:
 1. Buka cmd
 2. pindahkan cd ke lokasi main.py
 3. Run main.py dengan mengetik "Python3 main.py"
-4. Masukkan nama file pada saat muncul pesan "Enter Graf File Name : ". Pastikan file terdapat pada folder test dan format isi file sesuai dengan berikut.
+4. Masukkan nama file pada saat muncul pesan "Enter Graf File Name : ". Pastikan file terdapat pada folder yang sama dengan main.py dan format isi file sesuai dengan berikut.
 
  <jumlah node>
  <nama node1> <posisi X node1> <posisi Y node1>
@@ -22,7 +22,7 @@ Algoritma decrease and conquer:
  //Matriks ketetanggaan dengan nilai berupa boolean
  //nilai matriks menyatakan nodeA dan nodeB terhubung
  //Contoh
- 1 0 0 1
+ 1 0 0 0
  0 1 0 1
  0 1 0 0 
  0 0 0 0 
