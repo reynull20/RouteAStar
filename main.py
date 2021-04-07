@@ -8,6 +8,7 @@ while(True):
     g1 = Graph.Graph()
     GV = nx.Graph() #Untuk visualisasi
     LoadFile.loadToGraf(fn,g1,GV)
+    Gres = GV
     print("Available Node :")
     i = 0
     for item in g1.graf.keys():
@@ -20,6 +21,8 @@ while(True):
     exit = False
     while(exit != True):
         print()
+        nx.draw(GV,nx.get_node_attributes(GV,'pos'),with_labels = True)
+        plt.show()
         s1 = input("Pick Source Node : ")
         s2 = input("Pick Goal Node : ")
         while((s1 not in g1.graf.keys()) and (s2 not in g1.graf.keys())):
@@ -27,7 +30,7 @@ while(True):
             s1 = input("Pick Source Node : ")
             s2 = input("Pick Goal Node : ")
         ans = Astar.Astar(s1, s2)
-        nx.draw(GV,nx.get_node_attributes(GV,'pos'))
+        nx.draw(Gres,nx.get_node_attributes(GV,'pos'),with_labels = True)
         listans, sumAns = ans.Solve(g1)
         if(len(listans) != 0):
             for i in range(len(listans)-1):
@@ -37,7 +40,7 @@ while(True):
             i = 0
             for item in listans:
                 px, py = g1.getPos(item)
-                plt.plot(px, py, marker = "o", markerfacecolor = 'r')
+                plt.plot(px, py, marker = "o", markerfacecolor = 'w',markersize=20)
                 if(i != 0):
                     print(" => ",end='')
                 print(item, end='')
